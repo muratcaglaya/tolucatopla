@@ -1,0 +1,243 @@
+@charset "utf-8";
+#confirmation{
+	width:1230px;
+	min-height:600px;
+	
+}/* CSS Document */
+#top_space{
+	width:1230px;
+	height:20px;
+	
+}
+#main_order{
+	width:1170px;
+	min-height:250px;	
+	padding-left:30px;
+	padding-right:30px;
+	padding-top:10px;
+	padding-bottom:10px;
+	font-family:"Oswald Regular";
+	
+}
+#order{
+	width:1170px;
+	min-height:230px;	
+	border: 2px solid #ccc;
+	border-radius: 10px 10px 10px 10px;
+	box-shadow: 0px 0px 10px #ccc;
+	
+}
+#order_word{
+	width:1136px;
+	height:30px;
+	background:#999;	
+	padding-left:30px;
+	font-size:20px;
+	border-radius: 10px 10px 0px 0px;
+	border: 2px solid #ccc;
+}
+#order_inside{
+	width:1150px;
+	min-height:180px;
+	
+	margin:10px;
+}
+#order_customer_info{
+	width:1150px;
+	height:24px;
+	
+}
+#order_customer_name{
+	width:300px;
+	height:24px;
+	
+	float:left;
+}
+#order_phone{
+	width:300px;
+	height:24px;
+	
+	float:left;
+}
+#order_line{
+	width:1150px;
+	height:1px;
+	background:#999;
+}
+#order_time{
+	width:150px;
+	height:24px;
+	
+	float:right;
+	text-align:right;	
+}
+#order_inside_word_production{
+	width:1150px;
+	height:24px;
+	
+	margin-top:25px;
+}
+#order_productionss{
+    min-height:112px;
+	margin-top:10px;
+	
+}
+#order_inside_number{
+	padding-left:5px;
+	width:1145px;
+	height:24px;
+	
+}
+#order_inside_info{
+	padding-left:50px;
+	width:1100px;
+	height:78px;
+	
+}
+#order_inside_info_word{
+	width:1100px;
+	height:24px;
+	
+}
+#order_inside_info_word_left{
+	width:800px;
+	height:24px;
+	
+	float:left;
+}
+#order_inside_info_word_right{
+	width:222px;
+	height:24px;
+	
+	float:right;
+}
+#order_inside_info_word_right_amount{
+	min-width:60px;
+	height:24px;
+	
+	float:left;
+	text-align:left;
+}
+#order_inside_info_word_right_price{
+	min-width:150px;
+	height:24px;
+	
+	float:left;
+	text-align:right;
+}
+#order_inside_sum{
+	width:1150px;
+	height:24px;
+	margin-top:10px;	
+	text-align:right;
+	background:#E8E8E8;	
+}
+#order_inside_status{
+	width:1100px;
+	height:30px;
+	
+}
+#order_inside_status_left{
+	min-width:200px;
+	height:24px;
+	
+	float:left;
+	padding-right:5px;
+	padding-top:4px;
+}
+#order_inside_status_right{
+	width:250px;
+	height:28px;
+	
+	float:left;
+}
+#order_inside_status_word{
+	max-width:205px;
+	height:28px;
+	
+	float:left;
+}
+#order_inside_status_word_left{
+	width:45px;
+	height:24px;
+	
+	float:left;
+	padding-top:4px;
+}
+#order_inside_status_word_right{
+	width:140px;
+	height:24px;
+	
+	float:left;
+	padding-top:4px;
+	color:#0199d9;
+	padding-right:3px;
+}
+#order_inside_status_delete{
+	width:26px;
+	height:24px;
+	border: 2px solid #ccc;
+	border-radius: 5px 5px 5px 5px;
+	box-shadow: 0px 0px 10px #ccc;
+	float:right;
+	
+	text-align:center;
+	padding-top:2px;
+}
+#order_inside_status a:hover{
+	color:#0199d9;
+}
+#order_inside_line{
+	height:1px;
+	background:url(images/line.jpg);
+	
+}
+#general_sum{
+	width:1150px;
+	height:24px;
+	background:#CFC;
+	margin-top:10px;
+	text-align:right;
+}
+#order_address_word_production{
+	margin-top:20px;
+	width:1150px;
+	height:24px;	
+}
+#order_address_inside{
+	width:1100px;
+	min-height:50px;
+	
+	padding-left:50px;
+}
+#order_address_inside_border{
+	border: 2px solid #ccc;
+}
+#order_new_customer_word{
+	margin-top:50px;
+	width:1150px;
+	height:24px;
+	
+}
+#order_foot{
+	width:1166px;
+	height:30px;
+	background:#999;	
+	font-size:20px;
+	border-radius: 0px 0px 10px 10px;
+	border: 2px solid #ccc;
+}
+#confirmation_order_mesaj{
+	padding-top:30px;	
+	width:500px;
+	height:100px;
+	text-align:center;	
+	margin-left:340px;
+	font-family:"Oswald Regular";
+}
+#confirmation_order_mesaj a:hover{
+	color:#0199d9;
+}
+
+
+

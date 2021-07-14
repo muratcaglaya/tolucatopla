@@ -1,0 +1,282 @@
+@charset "utf-8";
+/* CSS Document */
+form.registration_form_style {
+    display: table;
+
+}
+
+table.registration_form_style {
+	
+    display: table-row;
+}
+#fotget_password_button{
+	 display: inline-block;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 80px;
+  height: 19px;
+  cursor: pointer;
+  padding: 10px 13px 10px 10px;
+  border: 1px solid #018dc4;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  font: normal 18px/normal "Times New Roman", Times, serif;
+  color: rgba(255,255,255,0.9);
+  text-align: center;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  background: #0199d9;
+  -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) ;
+  box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) ;
+  text-shadow: -1px -1px 0 rgba(15,73,168,0.66) ;
+  -webkit-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  float:right;
+	}
+#sign_up_button{
+  display: inline-block;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 80px;
+  height: 19px;
+  cursor: pointer;
+  padding: 10px 13px 10px 10px;
+  border: 1px solid #018dc4;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  font: normal 18px/normal "Times New Roman", Times, serif;
+  color: rgba(255,255,255,0.9);
+  text-align: center;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  background: #0199d9;
+  -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) ;
+  box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) ;
+  text-shadow: -1px -1px 0 rgba(15,73,168,0.66) ;
+  -webkit-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  float:right;
+  
+}
+#sign_in_button{
+  display: inline-block;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 80px;
+  height: 19px;
+  cursor: pointer;
+  padding: 10px 13px 10px 10px;
+  border: 1px solid #018dc4;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  font: normal 18px/normal "Times New Roman", Times, serif;
+  color: #0199d9;
+  text-align: center;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  background: rgba(255,255,255,1);
+  -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) ;
+  box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) ;
+  
+  -webkit-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+   float:right;     
+}
+
+#sign_up{
+	
+	width: 310px;
+	height: 360px;
+	font-family:"Oswald Regular"; 
+	
+}
+#sign_in{
+	
+	width: 360px;
+	height: 300px;
+	font-family:"Oswald Regular"; 
+}
+#sign{
+	
+	padding-left:20px;
+	width: 350px;
+	height: 400px;	
+	float:left;
+	margin-left: 0px;	
+}
+#message{
+	padding-top:30px;	
+	width:400px;
+	height:100px;
+	float:left;
+	font-family: "Oswald Regular";
+	
+	}
+#forget_password{
+	width: 310px;
+	height: 360px;
+	font-family:"Oswald Regular"; 
+}
+#forget_password_word{
+	width:330px;
+	height:30px;	
+	text-align:right;
+	font-family:"Oswald Regular";
+	font-size:20px;
+	color:#FF8000;
+	}
+#forget_password_word a{
+	color:#FF8000;
+}
+#forget_password_word a:hover{
+	color:#0199d9;
+}
+
+ .inputWithIcon_member_address textarea{
+    width:300px;
+	height:80px;
+    border:2px solid #aaa;
+    border-radius:4px;
+    margin:8px 0;
+    outline:none;
+    padding:8px;
+    box-sizing:border-box;
+    transition:.3s;
+	resize: none;
+  }
+.inputWithIcon_member input[type=text]{
+    width:300px;
+    border:2px solid #aaa;
+    border-radius:4px;
+    margin:8px 0;
+    outline:none;
+    padding:8px;
+    box-sizing:border-box;
+    transition:.3s;
+  }
+ 
+.inputWithIcon_member input[type=email]{
+    width:300px;
+    border:2px solid #aaa;
+    border-radius:4px;
+    margin:8px 0;
+    outline:none;
+    padding:8px;
+    box-sizing:border-box;
+    transition:.3s;
+  }
+  .inputWithIcon_member input[type=password]{
+    width:300px;
+    border:2px solid #aaa;
+    border-radius:4px;
+    margin:8px 0;
+    outline:none;
+    padding:8px;
+    box-sizing:border-box;
+    transition:.3s;
+  }
+  textarea:focus{
+	   border-color:dodgerBlue;
+	   box-shadow:0 0 8px 0 dodgerBlue;
+	  }
+  
+  input[type=text]:focus{
+    border-color:dodgerBlue;
+    box-shadow:0 0 8px 0 dodgerBlue;
+  }
+  input[type=email]:focus{
+    border-color:dodgerBlue;
+    box-shadow:0 0 8px 0 dodgerBlue;
+  }
+   input[type=password]:focus{
+    border-color:dodgerBlue;
+    box-shadow:0 0 8px 0 dodgerBlue;
+  }
+  
+  .inputWithIcon_member_address textarea{
+    padding-left:40px;
+  }
+  .inputWithIcon_member input[type=text]{
+    padding-left:40px;
+  }
+  .inputWithIcon_member input[type=email]{
+    padding-left:40px;
+  }
+  .inputWithIcon_member input[type=password]{
+    padding-left:40px;
+  }
+  
+  
+  
+  
+  .inputWithIcon_member_address {
+	  text-align:center;
+	 }
+  
+  
+  .inputWithIcon_member {
+	  text-align:center;
+	 }
+  
+  
+   .inputWithIcon_member_address{
+    position:relative;
+  }
+  
+  .inputWithIcon_member{
+    position:relative;
+  }
+  
+   .inputWithIcon_member_address i{
+    position:absolute;
+    left:0;
+    top:8px;
+    padding:9px 8px;
+    color:#aaa;
+    transition:.3s;
+  }
+  .inputWithIcon_member i{
+    position:absolute;
+    left:0;
+    top:8px;
+    padding:9px 8px;
+    color:#aaa;
+    transition:.3s;
+  }
+  
+  .inputWithIcon_member_address textarea:focus + i{
+    color:dodgerBlue;
+  }
+  .inputWithIcon_member input[type=text]:focus + i{
+    color:dodgerBlue;
+  }
+  .inputWithIcon_member input[type=email]:focus + i{
+    color:dodgerBlue;
+  }
+.inputWithIcon_member input[type=password]:focus + i{
+    color:dodgerBlue;
+  }
+  
+  #right_member{
+	  margin:25px;
+	  float:right;
+	 }
+	 
+#left_member{
+		 margin:25px;
+	  float:left;
+		 
+		 }
+#member{
+	width:400px;
+	}
+

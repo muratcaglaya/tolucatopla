@@ -1,0 +1,47 @@
+#chart li,#chart li span {
+	height:25px;	
+}
+#chart li .percent {
+	width:30px;
+	position: absolute;
+	top:2px;
+	right:110px;
+	text-align:right;
+	color: black;
+	font-family:"Oswald Regular";
+}
+#chart li {
+	position: relative;
+	display:block;
+	text-align:left;
+	background:#FFF;
+	height:25px;
+	width:240px;
+	border:solid 0px #000;
+	border-radius: 5px 5px 5px 5px;
+	box-shadow: 0px 0px 10px #ccc;
+	background:#ccc;
+}
+#chart li .bar {
+	width:0;
+}
+#chart{
+	padding-left:2px;
+	width:250px;
+	margin-top:2px;
+	}
+
+.inner .bar {
+	
+	height:25px;	
+	border-right:solid 1px #000;
+	border-radius: 5px 5px 5px 5px;
+	background: #e67e22;
+	background: -moz-linear-gradient(top, #fceabb 0%, #fccd4d 50%, #f8b500 51%, #fbdf93 100%);
+	background: -webkit-linear-gradient(top, #fceabb 0%,#fccd4d 50%,#f8b500 51%,#fbdf93 100%);
+	background: linear-gradient(to bottom, #fceabb 0%,#fccd4d 50%,#f8b500 51%,#fbdf93 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fceabb', 
+	endColorstr='#fbdf93',GradientType=0 );
+	text-align:center;
+}
+
