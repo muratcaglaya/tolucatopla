@@ -24,6 +24,13 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/product/products',$data);
 	}
 
+	public function urunekle()
+	{
+		$data['head']="Ürünler Ekle";
+		$data['subcategory']=Kategori::select();
+		$this->load->view('admin/product/addproduct',$data);
+	}
+
 
 	public function panel()
 	{
