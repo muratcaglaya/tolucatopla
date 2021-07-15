@@ -7,12 +7,12 @@
 	<div class="col-md-3">
 		<div class="small-box bg-red">
 			<div class="inner">
-				<h1>Kategori Oluştur</h1>
+				<h4>Ürün Alt Seçenekleri Oluştur</h4>
 			</div>
 			<div class="icon">
 				<i class="fa fa-plus"></i>
 			</div>	
-			<a href="<?php echo base_url('admin/kategoriekle');?>" class="small-box-footer">Tıkla <i class="fa fa-arrow-circle-right"></i></a>
+			<a href="<?php echo base_url('admin/altsecenekekle/'.$option->id);?>" class="small-box-footer">Tıkla <i class="fa fa-arrow-circle-right"></i></a>
 		</div>		
 	</div>
 	<div class="col-md-9">
@@ -21,18 +21,16 @@
 				<table id="category" class="table table-bordered table-striped">
 					<thead>
 						<tr>
-							<th>Kategori Adı</th>
-							<th>Üst Kategory</th>
+							<th>Alt Şeçenek Adı</th>
 							<th>İşlemler</th>
 						</tr>
 					</thead>
 					<tbody>
-						<?php foreach($categories as $category){ ?>
+						<?php foreach($suboptions as $suboption){ ?>
 							<tr>
-								<td><?=$category->name;?></td>
-								<td><?php if($category->topcategory==1){echo "Erkek";}elseif($category->topcategory==2){echo "Kadın";}else{echo "Çocuk";}?></td>
+								<td><?=$suboption->name;?></td>
 								<td>
-									<a href="<?php echo base_url('admin/kategoriduzenle/'.$category->id);?>" class="btn btn-xs btn-default"><i class="fa fa-edit"></i>Düzenle</a>
+									<a href="<?php echo base_url('admin/altsecenekduzenle/'.$suboption->id); ?>"  class="btn btn-xs btn-default"><i class="fa fa-edit"></i>Düzenle</a>
 									<a class="btn btn-xs btn-danger"><i class="fa fa-edit"></i>Sil</a>
 								</td>
 							</tr>
@@ -40,8 +38,8 @@
 					</tbody>
 				</table>
 			</div>
+
 		</div>
-		
 	</div>
 
 

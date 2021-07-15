@@ -9,7 +9,7 @@
 			<div class="box-body">
 				<form method="post" action="<?php echo base_url('admin/kategoriduzenle/'.$category->id)?>">
 					<div class="form-group">
-						<label>Kategori Adi</label>
+						<label>Kategori Adı</label>
 						<input type="text" name="category" value="<?=$category->name;?>" required class="form-control"/>
 					</div>
 					<div class="form-group">

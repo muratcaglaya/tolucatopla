@@ -30,7 +30,9 @@
         <li class="header">MENÜLER</li>
 
         <li class="<?php active('panel');?>"><a href="<?php echo base_url('admin/panel'); ?>"><i class="fa fa-home"></i> <span>Anasayfa</span></a></li>
+        <li class="<?php active('urunler');?>"><a href="<?php echo base_url('admin/urunler'); ?>"><i class="fa fa-shopping-bag"></i> <span>Ürünler</span></a></li>
          <li class="<?php active('kategoriler');?>"><a href="<?php echo base_url('admin/kategoriler'); ?>"><i class="fa fa-list"></i> <span>Ürün Kategorileri</span></a></li>
+         <li class="<?php active('urunsecenekleri');?>"><a href="<?php echo base_url('admin/urunsecenekleri'); ?>"><i class="fa fa-sort"></i> <span>Ürün Seçenekleri</span></a></li>
         <li class="<?php active('ayarlar');?>"><a href="<?php echo base_url('admin/ayarlar'); ?>"><i class="fa fa-cog"></i> <span>Ayarlar</span></a></li>
         <li><a href="<?php echo base_url('admin/cikis'); ?>"><i class="fa fa-sign-out"></i> <span>Oturum Kapat</span></a></li>
       </ul>

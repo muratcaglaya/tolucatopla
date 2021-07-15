@@ -18,6 +18,12 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/login');
 	}
 
+	public function urunler()
+	{
+		$data['head']="Ürünler";
+		$this->load->view('admin/product/products',$data);
+	}
+
 
 	public function panel()
 	{
@@ -56,7 +62,7 @@ class Admin extends CI_Controller {
 		}		
 		
 		Ayarlar::update(postvalue('id'),$data);
-		flash('success','check','Ayarlar güncellendi.');
+		flash('success','check','Ayarlar Güncellendi.');
 		back();
 
 	}
@@ -93,10 +99,9 @@ class Admin extends CI_Controller {
 		{
 			$data=['topcategory'=>postvalue('topcategory'),'name'=>postvalue('category'),'slug'=>sef(postvalue('category'))];
 			Kategori::update($id,$data);
-			flash('success','check','KategoriGüncellendi!');
+			flash('success','check','Kategori Güncellendi!');
 			back();
 		}
-
 
 		$isExit=Kategori::find($id);
 		if($isExit)
@@ -106,6 +111,109 @@ class Admin extends CI_Controller {
 		}
 
 	}
+	//üRÜN KADEGORİLERİ SON
+
+	//ÜRÜN SECENEKLERİ
+
+	public function urunsecenekleri()
+	{
+		$data['head']="Ürün Seçenekleri";
+		$data['options']=Secenekler::select();
+		$this->load->view('admin/options/options',$data);
+	}
+
+	public function secenekekle()
+	{
+			if(isPost())
+		{
+			$data=['name'=>postvalue('option'),'slug'=>sef(postvalue('option'))];
+			Secenekler::insert($data);
+			flash('success','check','Seçenek Eklendi');
+			back();
+		}
+		$data['head']="Seçenek Ekle";
+		$this->load->view('admin/options/addoption',$data);
+	}
+
+	public function secenekduzenle($id)
+	{
+		$data['head']="Seçnekleri Düzenle";
+		if(isPost())
+		{
+			$data=['name'=>postvalue('option'),'slug'=>sef(postvalue('option'))];
+			Secenekler::update($id,$data);
+			flash('success','check','Seçenek Güncellendi!');
+			back();
+		}
+		$isExit=Secenekler::find($id);
+		if($isExit)
+		{
+			$data['option']=$isExit;
+			$this->load->view('admin/options/editoption',$data);
+		}
+
+	}
+
+
+public function altsecenekler($id)
+{
+	$option=Secenekler::find($id);
+	$data['head']=$option->name." İçin Alt Seçenekler";
+	$data['suboptions']=AltSecenekler::select(['option_id'=>$id]);
+	$data['option']=$option;
+	$this->load->view('admin/options/suboptions',$data);
+}
+
+public function altsecenekekle($id)
+{
+	if(isPost())
+	{
+		$suboption=postvalue('suboption');
+		$ara='-';
+		if(strpos($suboption,$ara))
+		{
+			$value=explode('-',$suboption);
+			foreach($value as $name)
+			{
+				AltSecenekler::insert(['option_id'=>$id,'name'=>$name]);
+			}
+			flash('success','check','Alt Seçenekler Eklendi!');
+			redirect('admin/altsecenekler/'.$id);
+
+		}else
+		{
+			AltSecenekler::insert(['option_id'=>$id,'name'=>$suboption]);
+			flash('success','check','Alt Seçenek Eklendi!');
+			redirect('admin/altsecenekler/'.$id);
+		}		
+	}
+	$this->load->view('admin/options/addsuboption');
+}
+
+public function altsecenekduzenle($id)
+	{
+		$data['head']="Alt Seçnekleri Düzenle";
+		if(isPost())
+		{
+			$suboption=AltSecenekler::find($id);
+			$data=['name'=>postvalue('option')];
+			AltSecenekler::update($id,$data);
+			flash('success','check','Alt Seçenek Güncellendi!');
+			redirect('admin/altsecenekler/'.$suboption->option_id);
+		}
+		$isExit=AltSecenekler::find($id);
+		if($isExit)
+		{
+			$data['suboption']=$isExit;
+			$this->load->view('admin/options/editsuboption',$data);
+		}
+
+	}
+
+
+//ÜRÜN SECENEKLERİ SON
+
+	
 
 
 

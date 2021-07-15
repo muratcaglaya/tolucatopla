@@ -7,7 +7,7 @@
 	<div class="col-md-3">
 		<div class="small-box bg-red">
 			<div class="inner">
-				<h1>Kategori Oluştur</h1>
+				<h1>Ürün Oluştur</h1>
 			</div>
 			<div class="icon">
 				<i class="fa fa-plus"></i>
