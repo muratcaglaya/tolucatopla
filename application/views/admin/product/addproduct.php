@@ -21,7 +21,7 @@
 						</select>
 					</div>
 					<div class="form-group">
-						<label>Alt Ürün Kategorisi</label>
+						<label>Ürün Alt Kategorisi</label>
 						<select class="form-control" name="subcategory">
 							<?php foreach($subcategory as $category) { ?>
 								<option value="<?=$category->id;?>"><?=$category->name; ?></option>

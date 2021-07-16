@@ -18,6 +18,8 @@
   <link rel="stylesheet" href="<?php echo base_url('assets/back/'); ?>bower_components/jvectormap/jquery-jvectormap.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url('assets/back/'); ?>dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="<?php echo base_url('assets/back/dropzone/dropzone.css'); ?>">
+  <script src="<?php echo base_url('assets/back/dropzone/dropzone.js'); ?>"></script>
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="<?php echo base_url('assets/back/'); ?>dist/css/skins/_all-skins.min.css">

@@ -31,6 +31,48 @@ class Admin extends CI_Controller {
 		$data['subcategory']=Kategori::select();
 		$this->load->view('admin/product/addproduct',$data);
 	}
+	public function urunresimekle($id)
+	{
+		$data['head']="Ürünler Ekle";
+
+		if(isPost())
+		{
+			$data['head']="Ürünler Resim Ekle";
+			$config['upload_path']="assets/upload/products/";
+			$config['allowed_types']="jpg|png|jpeg";
+			$this->upload->initialize($config);
+			if($this->upload->do_upload('file'))
+			{
+				$image=$this->upload->data();
+				$path=$config['upload_path'].$image['file_name'];
+				$data=['product'=>$id,'path'=>$path];
+				Resimler::insert($data);
+			}
+		}
+		$data['subcategory']=Kategori::select();
+		$this->load->view('admin/product/addproductimage',$data);
+	}
+	public function urunstokekle($id)
+	{
+		$data['head']="Ürünler Stok Ekle";
+
+		if(isPost())
+		{
+			$data['head']="Ürünler Resim Ekle";
+			$config['upload_path']="assets/upload/products/";
+			$config['allowed_types']="jpg|png|jpeg";
+			$this->upload->initialize($config);
+			if($this->upload->do_upload('file'))
+			{
+				$image=$this->upload->data();
+				$path=$config['upload_path'].$image['file_name'];
+				$data=['product'=>$id,'path'=>$path];
+				Resimler::insert($data);
+			}
+		}
+		$data['options']=Secenekler::select();
+		$this->load->view('admin/product/addproductstock',$data);
+	}
 
 	public function uruncontroller()
 	{
@@ -47,13 +89,15 @@ class Admin extends CI_Controller {
 					   'tag'=>postvalue('tag')
 				];
 				Urunler::insert($data);
-				$qrpath='assets/upload/qrcode/urun'.$this->db->insert_id().'.png';
-				$params['data'] = 'urunid='.$this->db->insert_id();
+				$insert_id=$this->db->insert_id();
+				$qrpath='assets/upload/qrcode/urun'.$insert_id.'.png';
+				$params['data'] = 'urunid='.$insert_id;
 				$params['level'] = 'H';
 				$params['size'] = 5;
 				$params['savename'] = FCPATH.$qrpath;
 				$this->ciqrcode->generate($params);
-				Urunler::update($this->db->insert_id(),['qrcode'=>$qrpath]);
+				Urunler::update($insert_id,['qrcode'=>$qrpath]);
+				redirect('admin/urunresimekle/'.$insert_id);
 			}
 		}
 	}

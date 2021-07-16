@@ -12,7 +12,7 @@
 			<div class="icon">
 				<i class="fa fa-plus"></i>
 			</div>	
-			<a href="<?php echo base_url('admin/kategoriekle');?>" class="small-box-footer">Tıkla <i class="fa fa-arrow-circle-right"></i></a>
+			<a href="<?php echo base_url('admin/urunekle');?>" class="small-box-footer">Tıkla <i class="fa fa-arrow-circle-right"></i></a>
 		</div>		
 	</div>
 	<div class="col-md-9">
