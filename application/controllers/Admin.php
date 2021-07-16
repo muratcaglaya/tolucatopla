@@ -21,6 +21,7 @@ class Admin extends CI_Controller {
 	public function urunler()
 	{
 		$data['head']="Ürünler";
+		$data['products']=Urunler::select();
 		$this->load->view('admin/product/products',$data);
 	}
 
@@ -29,6 +30,32 @@ class Admin extends CI_Controller {
 		$data['head']="Ürünler Ekle";
 		$data['subcategory']=Kategori::select();
 		$this->load->view('admin/product/addproduct',$data);
+	}
+
+	public function uruncontroller()
+	{
+		if(isPost())
+		{
+			if(postvalue('step1'))
+			{
+				$data=['category'=>postvalue('category'),
+					   'subcategory'=>postvalue('subcategory'),
+					   'title'=>postvalue('title'),
+					   'description'=>postvalue('desc'),
+					   'price'=>postvalue('price'),
+					   'discount'=>postvalue('discount'),
+					   'tag'=>postvalue('tag')
+				];
+				Urunler::insert($data);
+				echo $qrpath='assets/upload/qrcode/urun'.$this->db->insert_id().'.png';
+				$params['data'] = 'urunid='.$this->db->insert_id();
+				$params['level'] = 'H';
+				$params['size'] = 5;
+				$params['savename'] = FCPATH.$qrpath;
+				$this->ciqrcode->generate($params);
+				Urunler::update($this->db->insert_id(),['qrcode'=>$qrpath]);
+			}
+		}
 	}
 
 

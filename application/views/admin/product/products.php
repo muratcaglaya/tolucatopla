@@ -21,19 +21,21 @@
 				<table id="category" class="table table-bordered table-striped">
 					<thead>
 						<tr>
-							<th>Kategori Adı</th>
-							<th>Üst Kategory</th>
+							<th>Ürün adı</th>
+							<th>Ürün Kategorisi</th>
+							<th>Ürün Alt Kategorisi</th>
+							<th>Ürün Fiyat</th>
 							<th>İşlemler</th>
 						</tr>
 					</thead>
 					<tbody>
-						<?php foreach($categories as $category){ ?>
+						<?php foreach($products as $product){ ?>
 							<tr>
-								<td><?=$category->name;?></td>
-								<td><?php if($category->topcategory==1){echo "Erkek";}elseif($category->topcategory==2){echo "Kadın";}else{echo "Çocuk";}?></td>
+								<td><?=$product->title;?></td>
+								<td><?php if($product->category==1){echo "Erkek";}elseif($product->category==2){echo "Kadın";}else{echo "Çocuk";}?></td>
+								<td><?php echo Kategori::find($product->subcategory)->name ;?></td>
+							<td><?php if($product->discount!=null){ echo "<del class='text-red'>".$product->price." TL</del>"." / ".$product->discount." TL"; }else {echo $product->price." TL";} ?></td>
 								<td>
-									<a href="<?php echo base_url('admin/kategoriduzenle/'.$category->id);?>" class="btn btn-xs btn-default"><i class="fa fa-edit"></i>Düzenle</a>
-									<a class="btn btn-xs btn-danger"><i class="fa fa-edit"></i>Sil</a>
 								</td>
 							</tr>
 						<?php } ?>

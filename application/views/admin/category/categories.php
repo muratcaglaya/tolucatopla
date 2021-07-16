@@ -22,7 +22,7 @@
 					<thead>
 						<tr>
 							<th>Kategori Adı</th>
-							<th>Üst Kategory</th>
+							<th>Üst Kategori</th>
 							<th>İşlemler</th>
 						</tr>
 					</thead>
