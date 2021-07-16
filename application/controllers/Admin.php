@@ -47,7 +47,7 @@ class Admin extends CI_Controller {
 					   'tag'=>postvalue('tag')
 				];
 				Urunler::insert($data);
-				echo $qrpath='assets/upload/qrcode/urun'.$this->db->insert_id().'.png';
+				$qrpath='assets/upload/qrcode/urun'.$this->db->insert_id().'.png';
 				$params['data'] = 'urunid='.$this->db->insert_id();
 				$params['level'] = 'H';
 				$params['size'] = 5;
