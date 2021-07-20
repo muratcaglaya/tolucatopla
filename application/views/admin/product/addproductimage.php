@@ -10,7 +10,7 @@
 				<form class="dropzone" action="<?php echo base_url('admin/urunresimekle/'.$this->uri->segment(3).'');?>" enctype="multipart/form-data" method="post"></form>
 			</div>
 			<div class="form-group">
-				<a href="<?php echo base_url('admin/urunstokekle/'.$this->uri->segment(3).'');?>" class="btn btn-success btn-flat btn-block">Ürün Seçekleri ve Stok Bilgilerini Ekle</a>				
+				<a href="<?php echo base_url('admin/urunstoktipiekle/'.$this->uri->segment(3).'');?>" class="btn btn-success btn-flat btn-block">Ürün Seçekleri ve Stok Bilgilerini Ekle</a>				
 			</div>
 		</div>
 	</div>
