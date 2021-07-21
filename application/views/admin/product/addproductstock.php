@@ -45,7 +45,15 @@
 		<div class="box box-primary">
 			<div class="box-body">
 				<?php foreach($stocks as $stock) { ?>
-					<li><?php echo Secenekler::find($type->options)->name.' : '.AltSecenekler::find($stock->suboption)->name.' - '.Secenekler::find($type->options2)->name.' : '.AltSecenekler::find($stock->suboption2)->name.' - Stok Sayısı : '.$stock->stock; ?></li>
+					<li><?php 
+						echo Secenekler::find($type->options)->name.' : '.AltSecenekler::find($stock->suboption)->name;
+						if(Secenekler::find($type->options2))
+						{
+							echo ' - '.Secenekler::find($type->options2)->name.' : '.AltSecenekler::find($stock->suboption2)->name;
+						}
+							echo '- Stok : '.$stock->stock;
+
+					?></li>
 				<?php } ?>	
 			</div>
 		</div>

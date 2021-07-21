@@ -31,15 +31,69 @@ class Admin extends CI_Controller {
 		$data['subcategory']=Kategori::select();
 		$this->load->view('admin/product/addproduct',$data);
 	}
+	public function urunduzenle($id)
+	{
+
+		if(isPost())
+		{
+			if(postvalue('product'))  //ürün update kısmı
+			{
+				$data=['category'=>postvalue('category'),
+					   'subcategory'=>postvalue('subcategory'),
+					   'title'=>postvalue('title'),
+					   'description'=>postvalue('desc'),
+					   'price'=>postvalue('price'),
+					   'discount'=>postvalue('discount'),
+					   'tag'=>postvalue('tag')
+				];
+				Urunler::update($id,$data);
+				flash('success','check','Ürün biilgileri güncellendi.');
+				back();
+			}
+		}
+
+		$urun=Urunler::find($id);
+		if(!$urun){flash('warning','remove','Böyle bir ürün bulunamadı. '); back();}
+		$data['product']=$urun;
+		$data['images']=Resimler::select(['product'=>$id]);
+		$data['stocks']=Stoklar::select(['product'=>$id]);
+		$data['type']=StokTipi::find(['product'=>$id]);
+		$data['head']="Ürün Düzenle";
+		$data['subcategory']=Kategori::select();
+		$this->load->view('admin/product/editproduct',$data);
+	}
+
+	public function urunresimsil($id)
+	{
+		$resim=Resimler::find($id);
+		if($resim->master==1){flash('warning','ban','Ürünün kapak resmi silinemez!!!'); back();}
+		unlink($resim->path);
+		Resimler::delete($id);
+		flash('success','check','Resim başarıyla silindi');
+		back();
+	}	
+	public function urunresimkapak($id)
+	{
+		$resim=Resimler::find($id);	
+		Resimler::update(['product'=>$resim->product],['master'=>0]);
+		$data=['master'=>1];
+		Resimler::update($id,$data);
+		flash('success','check','Resim başarıyla kapak resmi seçildi.');
+		back();
+	}
+
+
 	public function urunresimekle($id)
 	{
 		$data['head']="Ürünler Ekle";
 
 		if(isPost())
 		{
+			$urun=Urunler::find($id);
 			$data['head']="Ürünler Resim Ekle";
 			$config['upload_path']="assets/upload/products/";
 			$config['allowed_types']="jpg|png|jpeg";
+			$config['file_name']=$urun->seo.$urun->id;
 			$this->upload->initialize($config);
 			if($this->upload->do_upload('file'))
 			{
@@ -93,6 +147,7 @@ class Admin extends CI_Controller {
 			flash('success','check','Stok başarıyla girildi.');
 			back();
 		}
+
 		$product=Urunler::find($id);
 		if(!$product){flash('success','check','Stok tipi başarıyla girildi.'); back();}
 		$stocktype=StokTipi::find(['product'=>$product->id]);
@@ -104,10 +159,38 @@ class Admin extends CI_Controller {
 		}
 		$data=['option1'=>$secenek1,'option2'=>$secenek2];
 
-		$data['type']=$stocktype;
-		$data['head']="Ürün Stoklarını Giriniz";
-		$data['stocks']=Stoklar::select(['product'=>$id]);		
+		$data['type']=$stocktype;		
+		$data['stocks']=Stoklar::select(['product'=>$id]);
+		$data['head']="Ürün Stoklarını Giriniz";		
 		$this->load->view('admin/product/addproductstock',$data);
+	}
+
+	public function urunstokguncelle($id)
+	{
+
+		if(isPost())
+		{
+			$stock=Stoklar::find($id);
+			$data=['product'=>$stock->product,'suboption'=>postvalue('subcategory'),'suboption2'=>postvalue('subcategory2'),'stock'=>postvalue('stock')];
+			Stoklar::update($id,$data);
+			flash('success','check','Stok başarıyla güncellendi.');
+			back();
+		}
+
+		$stock=Stoklar::find($id);
+		$stocktype=StokTipi::find(['product'=>$stock->product]);
+		$secenek1=AltSecenekler::select(['option_id'=>$stocktype->options]);
+		$secenek2=null;
+		if($stocktype->options2!=null)
+		{
+			$secenek2=AltSecenekler::select(['option_id'=>$stocktype->options2]);
+		}
+		$data=['option1'=>$secenek1,'option2'=>$secenek2];
+
+		$data['type']=$stocktype;		
+		$data['stock']=$stock;
+		$data['head']="Ürün Stok Güncelle";	
+		$this->load->view('admin/product/editproductstock',$data);
 	}
 
 	public function uruncontroller($id=null)

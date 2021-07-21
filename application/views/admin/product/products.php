@@ -36,6 +36,7 @@
 								<td><?php echo Kategori::find($product->subcategory)->name ;?></td>
 							<td><?php if($product->discount!=null){ echo "<del class='text-red'>".$product->price." TL</del>"." / ".$product->discount." TL"; }else {echo $product->price." TL";} ?></td>
 								<td>
+									<a href="<?php echo base_url('admin/urunduzenle/'.$product->id); ?>" class="btn btn-xs btn-default"><i class="fa fa-edit"></i>Güncelle</a>
 								</td>
 							</tr>
 						<?php } ?>
