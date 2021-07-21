@@ -35,6 +35,8 @@
          <li class="<?php active('urunsecenekleri');?>"><a href="<?php echo base_url('admin/urunsecenekleri'); ?>"><i class="fa fa-sort"></i> <span>Ürün Seçenekleri</span></a></li>
         <li class="<?php active('ayarlar');?>"><a href="<?php echo base_url('admin/ayarlar'); ?>"><i class="fa fa-cog"></i> <span>Ayarlar</span></a></li>
         <li><a href="<?php echo base_url('admin/cikis'); ?>"><i class="fa fa-sign-out"></i> <span>Oturum Kapat</span></a></li>
+        <li class="header">FONKSİYONLAR</li>
+        <li><a href="" class="btn btn-flat btn-block btn-success"><i class="fa fa-check"></i>Silme Fonksiyonu Aç</a></li>
       </ul>
 
 
