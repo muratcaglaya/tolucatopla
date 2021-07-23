@@ -164,7 +164,7 @@
 									</div>
 
 									<div class="block2-txt p-t-20">
-										<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+										<a href="<?=base_url('urun/'.$urun->seo);?>" class="block2-name dis-block s-text3 p-b-5">
 											<?=$urun->title;?>
 										</a>
 

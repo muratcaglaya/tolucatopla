@@ -9,6 +9,20 @@ class Home extends CI_Controller
 		$this->load->view('front/home');
 	}
 
+	public function product($seo)
+	{
+		$product=Urunler::find(['seo'=>$seo]);
+		if(($product)and($product->active==1))
+		{
+			$data['product']=$product;
+			$data['stocks']=Stoklar::select(['product'=>$product->id]);
+			$data['images']=Resimler::select(['product'=>$product->id],['master'=>'DESC']);
+			$data['stocktype']=StokTipi::find(['product'=>$product->id]);
+			$this->load->view('front/product/product',$data);
+		}
+
+	}
+
 	public function category($category)
 	{
 		switch($category)

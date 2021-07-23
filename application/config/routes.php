@@ -50,6 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'home';
+$route['urun/(:any)'] = 'home/product/$1';
 $route['kategori/(:any)'] = 'home/category/$1';
 $route['kategori/(:any)/(:any)'] = 'home/subcategory/$1/$2';
 $route['404_override'] = '';
