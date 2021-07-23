@@ -15,7 +15,7 @@ class Home extends CI_Controller
 		if(($product)and($product->active==1))
 		{
 			$data['product']=$product;
-			$data['stocks']=Stoklar::select(['product'=>$product->id]);
+			$data['stocks']=$this->db->from('stocks')->where('product',$product->id)->group_by('suboption2')->get()->result();
 			$data['images']=Resimler::select(['product'=>$product->id],['master'=>'DESC']);
 			$data['stocktype']=StokTipi::find(['product'=>$product->id]);
 			$this->load->view('front/product/product',$data);
