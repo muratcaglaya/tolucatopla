@@ -37,6 +37,7 @@
 							<td><?php if($product->discount!=null){ echo "<del class='text-red'>".$product->price." TL</del>"." / ".$product->discount." TL"; }else {echo $product->price." TL";} ?></td>
 								<td>
 									<a href="<?php echo base_url('admin/urunduzenle/'.$product->id); ?>" class="btn btn-xs btn-default"><i class="fa fa-edit"></i>Güncelle</a>
+									<?php deletebutton('product',$product->id);?>
 								</td>
 							</tr>
 						<?php } ?>
@@ -49,3 +50,6 @@
 
 
 <?php	$this->load->view('admin/include/footer');?>
+
+
+<a href="">

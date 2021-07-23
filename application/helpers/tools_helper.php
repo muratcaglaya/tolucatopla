@@ -59,6 +59,15 @@ function isPost()
 	}
 }
 
+function deletebutton($table,$id)
+{
+	$ci=get_instance();
+	if($ci->session->userdata('deletefunction'))
+	{		
+		echo '<a href="'.base_url('admin/sil/'.$table.'/'.$id).'" class="btn btn-xs btn-danger" ><i class="fa fa-remove"></i>Sil</a>';	
+	}
+}
+
 
 function sef($text) 
 {

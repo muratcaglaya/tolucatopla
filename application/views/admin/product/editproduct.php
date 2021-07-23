@@ -101,9 +101,9 @@
 	                  	<td><?=AltSecenekler::find($stock->suboption2)->name; ?></td>
 	                  <?php } ?>
 	                  <td><?=$stock->stock; ?></td>
-	                  <td>
-	                  	<a href="" class="btn btn-xs btn-danger"><i class="fa fa-remove"></i>Sil</a>
+	                  <td>	                  	
 	                  	<a href="<?php echo base_url('admin/urunstokguncelle/'.$stock->id);?>" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i>Düzenle</a>
+	                  	<?php deletebutton('stock',$stock->id);?>
 	                  </td>
 	                </tr>
             	<?php }?>

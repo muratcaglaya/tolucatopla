@@ -33,7 +33,7 @@
 								<td><?php if($category->topcategory==1){echo "Erkek";}elseif($category->topcategory==2){echo "Kadın";}else{echo "Çocuk";}?></td>
 								<td>
 									<a href="<?php echo base_url('admin/kategoriduzenle/'.$category->id);?>" class="btn btn-xs btn-default"><i class="fa fa-edit"></i>Düzenle</a>
-									<a class="btn btn-xs btn-danger"><i class="fa fa-edit"></i>Sil</a>
+									<?php deletebutton('category',$category->id);?>
 								</td>
 							</tr>
 						<?php } ?>

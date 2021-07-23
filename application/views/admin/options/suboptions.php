@@ -31,7 +31,7 @@
 								<td><?=$suboption->name;?></td>
 								<td>
 									<a href="<?php echo base_url('admin/altsecenekduzenle/'.$suboption->id); ?>"  class="btn btn-xs btn-default"><i class="fa fa-edit"></i>Düzenle</a>
-									<a class="btn btn-xs btn-danger"><i class="fa fa-edit"></i>Sil</a>
+									<?php deletebutton('suboption',$suboption->id);?>
 								</td>
 							</tr>
 						<?php } ?>

@@ -31,6 +31,65 @@ class Admin extends CI_Controller {
 		$data['subcategory']=Kategori::select();
 		$this->load->view('admin/product/addproduct',$data);
 	}
+
+	public function deletefunction()
+	{
+		if($this->session->userdata('deletefunction'))
+		{
+			$this->session->unset_userdata('deletefunction');
+		}else
+		{
+			$this->session->set_userdata('deletefunction',true);
+		}
+		back();		
+	}
+
+	public function sil($table,$id)
+	{
+		if(!$this->session->userdata('deletefunction')){echo "Burada işin yok ";}
+
+		switch($table)
+		{
+			case "product":
+				 $product=Urunler::find($id);
+				 if($product)
+				 {
+				 	StokTipi::delete(['product'=>$id]);
+				 	Stoklar::delete(['product'=>$id]);
+				 	$images=Resimler::select(['product'=>$id]);
+				 	foreach($images as $image)
+				 	{
+				 		unlink($image->path);
+				 		Resimler::delete($image->id);
+				 	}
+				 	unlink($product->qrcode);
+				 	Urunler::delete($id);				 	
+				 }
+			break;
+			case "stock":
+				 Stoklar::delete($id);
+			break;
+			case "category":
+				 Kategori::delete($id);
+			break;
+			case "option":
+				 $option=Secenekler::find($id);
+				 AltSecenekler::delete(['option_id'=>$option->id]);
+				 Secenekler::delete($id);
+			break;
+			case "suboption":
+				 $altsecenek=AltSecenekler::find($id);
+				 Stoklar::delete(['suboption'=>$altsecenek->id]);
+				 Stoklar::delete(['suboption2'=>$altsecenek->id]);
+				 AltSecenekler::delete($id);
+			break;				
+		}
+		flash('success','check','Silme işlemi başarıyla gerçekleşti.');
+		back();
+
+	}
+
+
 	public function urunduzenle($id)
 	{
 

@@ -34,7 +34,7 @@
 								<td>
 									<a href="<?php echo base_url('admin/altsecenekler/'.$option->id);?>" class="btn btn-xs btn-success"><i class="fa fa-circle-o"></i> Alt Seçenekler</a>
 									<a href="<?php echo base_url('admin/secenekduzenle/'.$option->id);?>" class="btn btn-xs btn-default"><i class="fa fa-edit"></i>Düzenle</a>
-									<a class="btn btn-xs btn-danger"><i class="fa fa-edit"></i>Sil</a>
+									<?php deletebutton('option',$option->id);?>
 								</td>
 							</tr>
 						<?php } ?>

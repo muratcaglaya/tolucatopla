@@ -36,7 +36,14 @@
         <li class="<?php active('ayarlar');?>"><a href="<?php echo base_url('admin/ayarlar'); ?>"><i class="fa fa-cog"></i> <span>Ayarlar</span></a></li>
         <li><a href="<?php echo base_url('admin/cikis'); ?>"><i class="fa fa-sign-out"></i> <span>Oturum Kapat</span></a></li>
         <li class="header">FONKSİYONLAR</li>
-        <li><a href="" class="btn btn-flat btn-block btn-success"><i class="fa fa-check"></i>Silme Fonksiyonu Aç</a></li>
+        <li>
+          <?php if($this->session->userdata('deletefunction')){ ?>
+            <a href="<?php echo base_url('admin/deletefunction');?>" class="btn btn-flat btn-block btn-success"><i class="fa fa-check"></i>Silme Fonksiyonu Açık</a><?php }else{ ?>
+             <a href="<?php echo base_url('admin/deletefunction');?>" class="btn btn-flat btn-block btn-danger"><i class="fa fa-exclamation"></i>Silme Fonksiyonu Kapalı</a>
+          <?php }?>      
+        </li>
+
+
       </ul>
 
 
