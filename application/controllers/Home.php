@@ -15,11 +15,39 @@ class Home extends CI_Controller
 		if(($product)and($product->active==1))
 		{
 			$data['product']=$product;
-			$data['stocks']=$this->db->from('stocks')->where('product',$product->id)->group_by('suboption2')->get()->result();
+			$data['stocks']=Stoklar::group('suboption',['product'=>$product->id]);
 			$data['images']=Resimler::select(['product'=>$product->id],['master'=>'DESC']);
 			$data['stocktype']=StokTipi::find(['product'=>$product->id]);
 			$this->load->view('front/product/product',$data);
 		}
+
+	}
+
+	public function getstock()
+	{
+		$product=postvalue('product');
+		$stockid=postvalue('firststock');
+		$type=StokTipi::find(['product'=>$product]);
+		if($type->options2==null)
+		{
+			$stocks=Stoklar::select(['product'=>$product,'suboption'=>$stockid]);
+			echo json_encode($stocks);
+		}
+		else
+		{
+			$stocks=Stoklar::join(['suboptions','suboptions.id','stocks.suboption2'],['product'=>$product,'suboption'=>$stockid]);
+			echo json_encode($stocks);	
+		}
+
+	}
+	public function getcountstock()
+	{
+		$product=postvalue('product');
+		$optionid=postvalue('firststock');
+		$optionid2=postvalue('secondstock');
+
+		$stocks=Stoklar::find(['product'=>$product,'suboption'=>$optionid,'suboption2'=>$optionid2]);
+		echo $stocks->stock;
 
 	}
 

@@ -62,9 +62,10 @@
 						</div>
 
 						<div class="rs2-select2 rs3-select2 bo4 of-hidden w-size16">
-							<select class="selection-2" name="size">
+							<select id="firststock" class="selection-2" onchange="getstock()" name="size">
+								<option value="0">Seçim yapınız</option>
 								<?php foreach($stocks as $stock){?>
-									<option><?php echo AltSecenekler::find($stock->suboption)->name;?></option>
+									<option value="<?php echo AltSecenekler::find($stock->suboption)->id;?>"><?php echo AltSecenekler::find($stock->suboption)->name;?></option>
 								<?php }?>								
 							</select>
 						</div>
@@ -76,14 +77,15 @@
 							</div>
 
 							<div class="rs2-select2 rs3-select2 bo4 of-hidden w-size16">
-								<select class="selection-2" name="color">
-									<?php foreach($stocks as $stock){?>
-										<option><?php echo AltSecenekler::find($stock->suboption2)->name;?></option>
-									<?php }?>
+								<select id="secondstock" onchange="getcountstock(<?=$product->id;?>)" class="selection-2" name="color">
+									<option>Önce <?php echo Secenekler::find($stocktype->options)->name;?> yapınız. </option>
 								</select>
 							</div>
 						</div>
-					<?php }?>	
+					<?php }?>
+					<div id="stockinfo" class="flex-m flex-w" style="color: red;">
+					</div>
+
 					<div class="flex-r-m flex-w p-t-10">
 						<div class="w-size16 flex-m flex-w">
 							<div class="flex-w bo5 of-hidden m-r-22 m-t-10 m-b-10">
@@ -417,7 +419,68 @@
 					</div>
 				</div>
 			</div>
-
 		</div>
 	</section>
+	<script type="text/javascript">
+		function getstock()
+		{
+			var firststock=$('#firststock').val();
+			var product="<?=$product->id;?>";$('#stockinfo').empty();
+			if(firststock!=0)
+			{
+				$.ajax({
+					url:"<?=base_url('home/getstock');?>",
+					type:"POST",
+					data:{'product':product,'firststock':firststock},
+					dataType:'json',
+					success:function(data)
+					{
+						$('#secondstock').empty();
+						$.each(data,function(i,stock)
+						{
+							$('#secondstock').append($('<option>',
+							{
+								value:stock.id,
+								text:stock.name								
+							}))
+							$('#stockinfo').empty();
+							if(i==0)
+							{
+								if(stock.stock<6){$('#stockinfo').html('Son '+stock.stock+' ürün');}								
+							}
+						});
+					}
+				});	
+			}else
+			{
+				$('#secondstock').empty();
+				$('#secondstock').append($('<option>',
+							{
+								text:'Önce <?php echo Secenekler::find($stocktype->options)->name;?> yapınız.'
+							}));
+			}			
+		}
+
+
+		function getcountstock(id)
+		{
+			var firststock=$('#firststock').val();
+			var secondstock=$('#secondstock').val();
+			var product=id;
+
+			$.ajax({
+					url:"<?=base_url('home/getcountstock');?>",
+					type:"POST",
+					data:{'product':product,'firststock':firststock,'secondstock':secondstock},					
+					success:function(data)
+					{
+						$('#stockinfo').empty();
+						if(data<6)
+						{							
+							$('#stockinfo').html('Son '+data+' ürün');
+						}
+					}
+				});			
+		}
+	</script>
 <?php $this->load->view('front/include/footer');?>
