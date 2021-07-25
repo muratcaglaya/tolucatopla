@@ -572,11 +572,17 @@ iframe {
 }
 
 /* ------------------------------------ */
-.topbar-email,
-.topbar-child1 {
+.topbar-email{
   font-family: Montserrat-Regular;
   font-size: 13px;
   color: #888888;
+  line-height: 1.7;
+}
+
+.topbar-child1 {
+  font-family: Montserrat-Regular;
+  font-size: 20px;
+  color: red;
   line-height: 1.7;
 }
 
@@ -638,7 +644,7 @@ iframe {
 }
 
 .logo img {
-  max-height: 27px;
+  max-height: 60px;
 }
 
 

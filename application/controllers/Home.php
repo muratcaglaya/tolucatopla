@@ -56,17 +56,17 @@ class Home extends CI_Controller
 		switch($category)
 		{
 			  case'erkek':
-			  		$data['Kategoriler']=Kategori::select(['topcategory'=>1]);
+			  		$data['Kategoriler']=Kategori::select(['topcategory'=>1]);$data['bannerimage']='erkeksayfasi.jpg';
 			  		$data['urunler']=Urunler::select(['category'=>1,'active'=>1],['id'=>'Random']);
 			  		$data['pageinfo']=['title'=>'ERKEK','subtitle'=>'Yeni Sezon Trend Erkek Ürünleri','image'=>'empty'];
 			  break; 
 			  case'kadin':
-			  		$data['Kategoriler']=Kategori::select(['topcategory'=>2]);
+			  		$data['Kategoriler']=Kategori::select(['topcategory'=>2]);$data['bannerimage']='kadinsayfasi.jpg';
 			  		$data['urunler']=Urunler::select(['category'=>2,'active'=>1]);
 			  		$data['pageinfo']=['title'=>'KADIN','subtitle'=>'Yeni Sezon Trend Kadın Ürünleri','image'=>'empty'];
 			  break;
 			  case'cocuk':
-			  		$data['Kategoriler']=Kategori::select(['topcategory'=>3]);
+			  		$data['Kategoriler']=Kategori::select(['topcategory'=>3]);$data['bannerimage']='cocuksayfasi.jpg';
 			  		$data['urunler']=Urunler::select(['category'=>3,'active'=>1]);
 			  		$data['pageinfo']=['title'=>'ÇOCUK','subtitle'=>'Yeni Sezon Trend Çocuk Ürünleri','image'=>'empty'];
 			  break;

@@ -1,5 +1,5 @@
 <?php $this->load->view('front/include/header');?>
-<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url(<?php echo base_url('assets/front/');?>images/heading-pages-02.jpg);">
+<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url(<?php echo base_url('assets/upload/sayfabanner/');?><?=$bannerimage;?>);">
 		<h2 class="l-text2 t-center">
 			<?php echo $pageinfo['title'];?>
 		</h2>
