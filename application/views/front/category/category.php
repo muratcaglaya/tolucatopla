@@ -116,7 +116,7 @@
 					<div class="flex-sb-m flex-w p-b-35">
 						<div class="flex-w">
 							<div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
-								<select class="selection-2" name="sorting">
+								<select class="selection-1" name="sorting">
 									<option>Default Sorting</option>
 									<option>Popularity</option>
 									<option>Price: low to high</option>
@@ -125,7 +125,7 @@
 							</div>
 
 							<div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
-								<select class="selection-2" name="sorting">
+								<select class="selection-1" name="sorting">
 									<option>Price</option>
 									<option>$0.00 - $50.00</option>
 									<option>$50.00 - $100.00</option>

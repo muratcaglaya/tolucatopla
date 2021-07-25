@@ -57,7 +57,7 @@ class Home extends CI_Controller
 		{
 			  case'erkek':
 			  		$data['Kategoriler']=Kategori::select(['topcategory'=>1]);
-			  		$data['urunler']=Urunler::select(['category'=>1,'active'=>1]);
+			  		$data['urunler']=Urunler::select(['category'=>1,'active'=>1],['id'=>'Random']);
 			  		$data['pageinfo']=['title'=>'ERKEK','subtitle'=>'Yeni Sezon Trend Erkek Ürünleri','image'=>'empty'];
 			  break; 
 			  case'kadin':

@@ -62,7 +62,7 @@
 						</div>
 
 						<div class="rs2-select2 rs3-select2 bo4 of-hidden w-size16">
-							<select id="firststock" class="selection-2" onchange="getstock()" name="size">
+							<select id="firststock" class="selection-1" onchange="getstock()" name="size">
 								<option value="0">Seçim yapınız</option>
 								<?php foreach($stocks as $stock){?>
 									<option value="<?php echo AltSecenekler::find($stock->suboption)->id;?>"><?php echo AltSecenekler::find($stock->suboption)->name;?></option>
@@ -77,7 +77,7 @@
 							</div>
 
 							<div class="rs2-select2 rs3-select2 bo4 of-hidden w-size16">
-								<select id="secondstock" onchange="getcountstock(<?=$product->id;?>)" class="selection-2" name="color">
+								<select id="secondstock" onchange="getcountstock(<?=$product->id;?>)" class="selection-1" name="color">
 									<option>Önce <?php echo Secenekler::find($stocktype->options)->name;?> yapınız. </option>
 								</select>
 							</div>
@@ -436,6 +436,11 @@
 					success:function(data)
 					{
 						$('#secondstock').empty();
+						$('#secondstock').append($('<option>',
+							{
+								value:0,
+								text:'Seçim yapınız'								
+							}))
 						$.each(data,function(i,stock)
 						{
 							$('#secondstock').append($('<option>',
