@@ -48,26 +48,49 @@ class Home extends CI_Controller
 
 		$stocks=Stoklar::find(['product'=>$product,'suboption'=>$optionid,'suboption2'=>$optionid2]);
 		echo $stocks->stock;
-
 	}
 
 	public function category($category)
 	{
+		$this->db->select("id,title,seo,discount,price, IFNULL(discount,price) as price2");
+		$this->db->from('products');
+
+		if($this->input->get('price'))
+		{
+			switch ($this->input->get('price')) {
+				case 'highttolow':	
+					$this->db->order_by('price2','DESC');					
+					break;
+				case 'lowtohight':
+					$this->db->order_by('price2','ASC');
+					break;
+
+				default:
+					break;
+			}
+		}else
+		{
+			$this->db->order_by('id','RANDOM');
+		}
+
 		switch($category)
 		{
 			  case'erkek':
+			  		$product=$this->db->where(['active'=>1,'category'=>1])->get()->result();
 			  		$data['Kategoriler']=Kategori::select(['topcategory'=>1]);$data['bannerimage']='erkeksayfasi.jpg';
-			  		$data['urunler']=Urunler::select(['category'=>1,'active'=>1],['id'=>'Random']);
+			  		$data['urunler']=$product;
 			  		$data['pageinfo']=['title'=>'ERKEK','subtitle'=>'Yeni Sezon Trend Erkek Ürünleri','image'=>'empty'];
 			  break; 
 			  case'kadin':
+			  		$product=$this->db->where(['active'=>1,'category'=>2])->get()->result();
 			  		$data['Kategoriler']=Kategori::select(['topcategory'=>2]);$data['bannerimage']='kadinsayfasi.jpg';
-			  		$data['urunler']=Urunler::select(['category'=>2,'active'=>1]);
+			  		$data['urunler']=$product;
 			  		$data['pageinfo']=['title'=>'KADIN','subtitle'=>'Yeni Sezon Trend Kadın Ürünleri','image'=>'empty'];
 			  break;
 			  case'cocuk':
+			  		$product=$this->db->where(['active'=>1,'category'=>3])->get()->result();
 			  		$data['Kategoriler']=Kategori::select(['topcategory'=>3]);$data['bannerimage']='cocuksayfasi.jpg';
-			  		$data['urunler']=Urunler::select(['category'=>3,'active'=>1]);
+			  		$data['urunler']=$product;
 			  		$data['pageinfo']=['title'=>'ÇOCUK','subtitle'=>'Yeni Sezon Trend Çocuk Ürünleri','image'=>'empty'];
 			  break;
 			  default:

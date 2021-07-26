@@ -116,11 +116,13 @@
 					<div class="flex-sb-m flex-w p-b-35">
 						<div class="flex-w">
 							<div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
-								<select class="selection-1" name="sorting">
-									<option>Default Sorting</option>
-									<option>Popularity</option>
-									<option>Price: low to high</option>
-									<option>Price: high to low</option>
+								<select onchange="window.location=('<?php echo base_url(uri_string());?>'+this.options[this.selectedIndex].value)" class="selection-1" name="sorting">
+									<option value="">Standart Listeme</option>
+									<option value="">En çok satanlar</option>
+									<option <?php if($this->input->get('price')=='lowtohight'){echo 'selected';}?> value="?price=lowtohight">Fiyat: artan</option>
+									<option <?php if($this->input->get('price')=='highttolow'){echo 'selected';}?> value="?price=highttolow">Fiyat: azalan</option>
+									
+									
 								</select>
 							</div>
 
@@ -169,7 +171,15 @@
 										</a>
 
 										<span class="block2-price m-text6 p-r-5">
-											<?=$urun->price;?> TL
+											<?php
+												if($urun->discount)
+												{
+													echo "<del>".$urun->price." TL </del>"."&nbsp;&nbsp;&nbsp;".'<span style="color:red">'.$urun->discount." TL </span>"; 
+												}else
+												{													
+													echo $urun->price.' TL';
+												} 
+											?>
 										</span>
 									</div>
 								</div>
