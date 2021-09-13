@@ -1,14 +1,14 @@
-<aside class="main-sidebar">
+    <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="<?php echo base_url('assets/back/'); ?>dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="<?php echo base_url('assets/upload/');?>config/logo1.png" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          <p>Uygulama Alanı</p>
         </div>
       </div>
       <!-- search form -->
@@ -24,45 +24,29 @@
       </form>
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
-
-
       <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">MENÜLER</li>
-
-        <li class="<?php active('panel');?>"><a href="<?php echo base_url('admin/panel'); ?>"><i class="fa fa-home"></i> <span>Anasayfa</span></a></li>
-        <li class="<?php active('urunler');?>"><a href="<?php echo base_url('admin/urunler'); ?>"><i class="fa fa-shopping-bag"></i> <span>Ürünler</span></a></li>
-         <li class="<?php active('kategoriler');?>"><a href="<?php echo base_url('admin/kategoriler'); ?>"><i class="fa fa-list"></i> <span>Ürün Kategorileri</span></a></li>
-         <li class="<?php active('urunsecenekleri');?>"><a href="<?php echo base_url('admin/urunsecenekleri'); ?>"><i class="fa fa-sort"></i> <span>Ürün Seçenekleri</span></a></li>
-        <li class="<?php active('ayarlar');?>"><a href="<?php echo base_url('admin/ayarlar'); ?>"><i class="fa fa-cog"></i> <span>Ayarlar</span></a></li>
-        <li><a href="<?php echo base_url('admin/cikis'); ?>"><i class="fa fa-sign-out"></i> <span>Oturum Kapat</span></a></li>
-        <li class="header">FONKSİYONLAR</li>
-        <li>
-          <?php if($this->session->userdata('deletefunction')){ ?>
-            <a href="<?php echo base_url('admin/deletefunction');?>" class="btn btn-flat btn-block btn-success"><i class="fa fa-check"></i>Silme Fonksiyonu Açık</a><?php }else{ ?>
-             <a href="<?php echo base_url('admin/deletefunction');?>" class="btn btn-flat btn-block btn-danger"><i class="fa fa-exclamation"></i>Silme Fonksiyonu Kapalı</a>
-          <?php }?>      
+        <li class="header" style="color: white;">MENÜLER</li>
+        <li class="<?php active('panel') ?>">
+          <a href="<?php echo base_url('admin/panel');?>"><i class="fa fa-home"></i> <span>Anasayfa</span></a>
         </li>
-
-
+        <li class="<?php active('config') ?>">
+          <a href="<?php echo base_url('admin/config');?>"><i class="fa fa-cog"></i> <span>Site Ayarları</span></a>
+        </li>
+        <li class="<?php active('logout') ?>">
+          <a href="<?php echo base_url('admin/logout');?>"><i class="fa fa-sign-out"></i> <span>Çıkış</span></a>
+        </li>
       </ul>
-
-
     </section>
+    <!-- /.sidebar -->
   </aside>
 
-
-     <!-- ANA KISIM BAŞLANGIÇ --> 
-
-    <div class="content-wrapper">
+   <!-- Anamenü başlangıç -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1><?php if(isset($head)){echo $head;} ?></h1>
-      
-
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
-      </ol>
+     
     </section>
+
+    <!-- Main content -->
     <section class="content">
-    <?php flashread(); ?>
-    <?php flashUnSet(); ?>
+      <!-- Info boxes -->

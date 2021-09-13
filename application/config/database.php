@@ -74,7 +74,7 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	=> 'mysql:host=127.0.0.1; dbname=eticaret; charset=utf8;',
+	'dsn'	=> 'mysql:host=127.0.0.1; dbname=toplucatopla; charset=utf8;',
 	'hostname' => '',
 	'username' => 'root',
 	'password' => '',
